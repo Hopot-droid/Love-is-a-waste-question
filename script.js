@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
     const success = document.getElementById("success");
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // ============================
 
     yesBtn.addEventListener("click", function () {
-
         const title = success.querySelector("h2");
         const message = success.querySelector("p");
 
@@ -24,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (message) {
-            message.textContent = "you got a text next week study";
+            message.textContent =
+                "SURPRISE 💀 YOU GOT A TEST NEXT WEEK. GO STUDY.";
         }
 
         success.style.display = "flex";
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // ============================
 
     function moveNoButton() {
-
         const buttonWidth = noBtn.offsetWidth;
         const buttonHeight = noBtn.offsetHeight;
 
@@ -68,15 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let touchTriggered = false;
 
     const rageMessages = [
-        "You really thought? 💀",
-        "Bro, give it up 😭",
-        "That button isn't for you 💀",
-        "You're still trying? 😂",
-        "Just press YES already 💀"
+        "Aww, you thought you had a choice? 💀",
+        "Still pressing NO? That's embarrassing 😭",
+        "Bro is fighting for his life 💀",
+        "Imagine thinking NO would work 😂",
+        "Cope harder. Just press YES. 💀"
     ];
 
     function rageBait() {
-
         if (noHidden) {
             return;
         }
@@ -88,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // ============================
 
         if (rageCount >= 5) {
-
             noHidden = true;
 
             const yesRect = yesBtn.getBoundingClientRect();
@@ -108,12 +104,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 "transform 0.8s ease, opacity 0.8s ease";
 
             requestAnimationFrame(function () {
-
                 noBtn.style.left = yesRect.left + "px";
                 noBtn.style.top = yesRect.top + "px";
                 noBtn.style.transform = "scale(0.25)";
                 noBtn.style.opacity = "0";
-
             });
 
             setTimeout(function () {
@@ -132,12 +126,10 @@ document.addEventListener("DOMContentLoaded", function () {
             rageMessages[rageCount - 1];
 
         setTimeout(function () {
-
             if (!noHidden) {
                 noBtn.textContent = "NO";
                 moveNoButton();
             }
-
         }, 700);
     }
 
@@ -156,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // ============================
 
     noBtn.addEventListener("touchstart", function (event) {
-
         event.preventDefault();
 
         touchTriggered = true;
@@ -165,7 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
             touchTriggered = false;
         }, 500);
-
     });
 
 
@@ -174,15 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // ============================
 
     noBtn.addEventListener("click", function (event) {
-
         event.preventDefault();
 
-        // Prevent Android touch + click from counting twice
         if (touchTriggered) {
             return;
         }
 
         rageBait();
     });
-
 });
